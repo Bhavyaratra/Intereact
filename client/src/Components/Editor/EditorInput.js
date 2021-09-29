@@ -24,6 +24,7 @@ export default function EditorInput(){
 
          <textarea 
            class="form-control text-monospace" 
+           id="textarea"
            rows="15"
            value={code}
            onChange={(e)=>setCode(e.target.value)}>
