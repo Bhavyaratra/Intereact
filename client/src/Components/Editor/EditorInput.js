@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react';
+import socket from '../../socket';
 
 export default function EditorInput(){
 
@@ -6,8 +7,7 @@ export default function EditorInput(){
     const [output,setOutput] = useState("");
     const [compiling,setCompiling] = useState(false);
 
-    async function run(e){
-        e.preventDefault();
+    async function compile(){
         setCompiling(true);
         const res = await fetch(
             `https://Wandbox-API.snowballsh.repl.co?code=${encodeURIComponent(code)}&lang=${encodeURIComponent("nodejs-head")}`
@@ -16,8 +16,24 @@ export default function EditorInput(){
         console.log(resData);
         setCompiling(false);
         setOutput(resData.program_message)
+        socket.emit('send-output',resData.program_message);
     }
 
+    useEffect(()=>{
+        socket.on('updated-text',data=>{
+            setCode(data);
+        })
+
+        socket.on('recieve-output',(data)=>{
+            setOutput(data);
+        })
+    },[])
+
+    const handleChange=(e)=>{
+        e.preventDefault();
+        socket.emit('write-text',e.target.value);
+        setCode(e.target.value);
+    }
 
     return(<>
         <div className="">
@@ -27,14 +43,16 @@ export default function EditorInput(){
            id="textarea"
            rows="15"
            value={code}
-           onChange={(e)=>setCode(e.target.value)}>
+           onChange={(e)=>{handleChange(e)}}>
          </textarea>
 
          <div className="">
             <button
                 class="btn btn-success "
                 type="button"
-                onClick={(e)=>run(e)}
+                onClick={(e)=>{
+                    compile();
+                }}
             >
                 Run
             </button>

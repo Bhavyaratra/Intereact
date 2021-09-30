@@ -1,6 +1,12 @@
 const express = require('express');
 const cors = require('cors');
+const socketio = require('socket.io');
+const http = require('http');
+
 const port = process.env.PORT || 8000;
+
+const socketOp = require('./middleware/socketOp');
+
 const app = express();
 
 app.use(cors());
@@ -8,7 +14,21 @@ app.use(cors());
 app.use(express.json({limit:"30mb",extended: true}));
 app.use(express.urlencoded({limit:"30mb",extended: true}));
 
-app.listen(port,function(err){
+const server = http.createServer(app);
+
+const io = socketio(server,{
+    cors:{
+        origin: "*",
+        methods: ["GET", "POST"],
+        allowedHeaders: ["my-custom-header"],
+        credentials: true
+    }
+})
+
+//handles socket operations
+socketOp(io);
+
+server.listen(port,function(err){
         if(err) console.error('connection error',err);
         else console.log(`listening to port ${port} [http://localhost:${port}]`)
 })
