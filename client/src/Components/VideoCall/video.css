@@ -1,0 +1,16 @@
+/* videoCall.js */
+
+#video-wrapper{
+    height:'34px';
+    background-color: #212121;
+}
+
+/* video.js */
+
+video{
+object-fit: cover;
+}
+
+#video-col{
+    height: 134px;
+}

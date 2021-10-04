@@ -1,0 +1,22 @@
+#room-view{
+    width: 100vw;
+    height: 100vh;
+   
+}
+
+#editor{
+    height: 100vh;
+}
+
+#utility{
+    height: 100vh;
+}
+
+#video-call{
+    bottom: 0;
+    right: 0;
+}
+
+#room-nav{
+    background-color: #212121;
+}

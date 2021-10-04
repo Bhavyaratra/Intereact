@@ -37,29 +37,28 @@ export default function EditorInput(){
 
     return(<>
         <div className="">
-
-         <textarea 
-           class="form-control text-monospace" 
-           id="textarea"
-           rows="15"
-           value={code}
-           onChange={(e)=>{handleChange(e)}}>
-         </textarea>
-
-         <div className="">
-            <button
-                class="btn btn-success "
+        <button
+                class="btn btn-success float-right"
+                id="code-runner"
                 type="button"
                 onClick={(e)=>{
                     compile();
                 }}
             >
-                Run
+                <i class="bi bi-play-fill"></i> Run
             </button>
+         <textarea 
+           class="form-control text-monospace" 
+           id="editor-textarea"
+           value={code}
+           onChange={(e)=>{handleChange(e)}}>
+         </textarea>
+         
+         <div className="">
+          
          </div> 
-
-        <div className="">
-            <h3>output:</h3>
+         <h3>output:</h3>
+        <div className="" style={{"overflow-y": "auto", "height":"15vh"}}>
             {compiling ? <p>compiling...</p> : <span></span>}
             {output? <samp>{output}</samp> : <span></span> }
         </div>
