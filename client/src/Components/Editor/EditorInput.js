@@ -36,7 +36,7 @@ export default function EditorInput(){
     }
 
     return(<>
-        <div className="">
+        <div className="container-md">
         <button
                 class="btn btn-success float-right"
                 id="code-runner"

@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1",
+        "ques": "Find smallest element in an array",
+        "desc": "In this program we will find the smallest element in the given unsorted array. We will initialize the starting element of array as smallest one and compare with all other elements of the given array and upadte the smallest value.",
+        "sample": "Enter the size of array : 6\nEnter the elements of array : 2 0 8 44 6 17\nOutput\nSmallest element of array : 0"
+    },
+    {
+        "id": "1",
+        "ques": "Find smallest element in an array",
+        "desc": "In this program we will find the smallest element in the given unsorted array. We will initialize the starting element of array as smallest one and compare with all other elements of the given array and upadte the smallest value.",
+        "sample": "Enter the size of array : 6\nEnter the elements of array : 2 0 8 44 6 17\nOutput\nSmallest element of array : 0"
+    },
+    {
+        "id": "1",
+        "ques": "Find smallest element in an array",
+        "desc": "In this program we will find the smallest element in the given unsorted array. We will initialize the starting element of array as smallest one and compare with all other elements of the given array and upadte the smallest value.",
+        "sample": "Enter the size of array : 6\nEnter the elements of array : 2 0 8 44 6 17\nOutput\nSmallest element of array : 0"
+    },
+    {
+        "id": "1",
+        "ques": "Find smallest element in an array",
+        "desc": "In this program we will find the smallest element in the given unsorted array. We will initialize the starting element of array as smallest one and compare with all other elements of the given array and upadte the smallest value.",
+        "sample": "Enter the size of array : 6 \nEnter the elements of array : 2 0 8 44 6 17\nOutput\nSmallest element of array : 0"
+    }
+]
