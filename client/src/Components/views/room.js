@@ -1,10 +1,23 @@
+import { useEffect, useState } from 'react'
 import Editor from "../Editor/Editor"
 import VideoCall from "../VideoCall/VideoCall"
 import Questionbank from "../Utitlities/Questionbank"
 import './style.css'
 import Utilities from "../Utitlities/Utitlities"
+import socket from '../../socket';
 
 export default function Room(){
+    const [roomId,setRoomId] = useState('');
+    useEffect(() => {
+        const url = window.location.href;
+        const id = url.substr(url.lastIndexOf('/')+1,url.length);
+        console.log(id);
+        setRoomId(id);
+
+        socket.emit('join-room', id,"user-id")
+
+    }, [])
+
     return(<>
     <div className="container-md" id="room-view">
     <div className="navbar" id="room-nav">

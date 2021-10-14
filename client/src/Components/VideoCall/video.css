@@ -1,8 +1,19 @@
 /* videoCall.js */
 
-#video-wrapper{
+#video-wrapper-top{
     height:'34px';
     background-color: #212121;
+    border-radius: 25px 25px 0 0;
+}
+#video-wrapper-down{
+    height:'34px';
+    background-color: #212121;
+    border-radius: 0 0 25px 25px;
+}
+
+#video-player{
+    /* border: 1px solid #212121; */
+    /* background-color: #212121; */
 }
 
 /* video.js */

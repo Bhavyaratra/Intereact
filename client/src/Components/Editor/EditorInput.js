@@ -1,13 +1,24 @@
 import {useEffect, useState} from 'react';
 import socket from '../../socket';
 
-export default function EditorInput(){
+export default function EditorInput(props){
 
     const [code,setCode] = useState("");
     const [output,setOutput] = useState("");
     const [compiling,setCompiling] = useState(false);
 
+    useEffect(()=>{
+        socket.on('updated-text',data=>{
+            setCode(data);
+        })
+        socket.on('recieve-output',(data)=>{
+            setOutput(data);
+        })
+    },[])
+   
+
     async function compile(){
+
         setCompiling(true);
         const res = await fetch(
             `https://Wandbox-API.snowballsh.repl.co?code=${encodeURIComponent(code)}&lang=${encodeURIComponent("nodejs-head")}`
@@ -19,15 +30,7 @@ export default function EditorInput(){
         socket.emit('send-output',resData.program_message);
     }
 
-    useEffect(()=>{
-        socket.on('updated-text',data=>{
-            setCode(data);
-        })
-
-        socket.on('recieve-output',(data)=>{
-            setOutput(data);
-        })
-    },[])
+   
 
     const handleChange=(e)=>{
         e.preventDefault();
@@ -58,9 +61,9 @@ export default function EditorInput(){
           
          </div> 
          <h3>output:</h3>
-        <div className="" style={{"overflow-y": "auto", "height":"15vh"}}>
+        <div className="border output" style={{"overflow-y": "auto", "height":"20vh"}}>
             {compiling ? <p>compiling...</p> : <span></span>}
-            {output? <samp>{output}</samp> : <span></span> }
+            {output? <samp className="">{output}</samp> : <span></span> }
         </div>
         </div>
         
