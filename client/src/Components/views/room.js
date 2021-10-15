@@ -23,7 +23,7 @@ export default function Room(){
     <div className="navbar" id="room-nav">
         <div className="container-fluid">
             <a className="navbar-brand" href="/home">
-               Intereact
+               InteReact
                 {/* <img src="https://i.imgur.com/HTLGops.png" alt="logo" width="24" height="24" className="d-inline-block align-text-top"/> */}
             </a>
         </div>

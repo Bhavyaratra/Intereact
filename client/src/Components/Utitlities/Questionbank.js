@@ -10,18 +10,18 @@ export default function Questionbank(){
     return(<>
     <div className="container-md" style={{"overflow-y":"auto","max-height":'54vh'}} >
         {ques && ques.length!==0 && ques.map((item,i)=>(
-        <Accordion>
+        <Accordion TransitionProps={{ unmountOnExit: true }}>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
               >
-                <h5>{item.ques}</h5>
+                <p>{item.ques}</p>
               </AccordionSummary>
               <AccordionDetails>
-                <Typography>
+                <p>
                      {item.desc}
-                </Typography>
+                </p>
                 <code style={{"white-space": "pre-line"}}>
                   {item.sample}
                 </code>
