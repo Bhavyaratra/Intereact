@@ -1,0 +1,33 @@
+#editor-textarea { 
+    font-family: monospace; 
+    font-size: 16px;
+    height: 60vh;    
+    resize:none;
+    overflow-y: auto;
+    border: none;
+ 
+}
+
+#editor-textarea::focus{
+    border:none
+}
+
+#code-runner{
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+    margin-top: 4px;
+}
+
+#editor-lang-slct{
+    position: absolute;
+    right: 0;
+    margin-right: 15px;
+    margin-top: 5px;
+}
+
+.output{
+    white-space: pre-line;
+    padding: 10px;
+    background-color: #ffffff;
+}

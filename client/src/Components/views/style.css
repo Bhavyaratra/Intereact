@@ -1,23 +1,33 @@
 #room-view{
     width: 100vw;
-    height: 100vh;
-   
+}
+
+#room-row1{
+    width: 100vw;
+    padding:0;
 }
 
 #editor{
-    height: 100vh;
+    height: 100%;
+    margin: 10px;
+    margin-right: 0;
 }
 
 #utility{
-    height: 100vh;
+    height: 60vh;
+    margin: 10px;
+    /* background-color: #363631; */
 }
 
 #video-call{
     bottom: 0;
     right: 0;
     margin: 5px ;
+    background-color: #fffffe;
 }
 
+
+
 #room-nav{
-    background-color: #212121;
+    background-color: #e8ebf3;
 }

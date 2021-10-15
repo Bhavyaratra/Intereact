@@ -8,7 +8,7 @@ import ques from '../../data/ques.json';
 
 export default function Questionbank(){
     return(<>
-    <div className="container-md" style={{"overflow-y":"scroll","max-height":'60vh'}} >
+    <div className="container-md" style={{"overflow-y":"auto","max-height":'54vh'}} >
         {ques && ques.length!==0 && ques.map((item,i)=>(
         <Accordion>
             <AccordionSummary

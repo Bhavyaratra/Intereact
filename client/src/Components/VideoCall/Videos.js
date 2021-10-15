@@ -1,4 +1,8 @@
 import React, { useEffect, useRef, useState } from "react"
+import { IconButton } from '@mui/material';
+import VideocamIcon from '@mui/icons-material/Videocam';
+import MicIcon from '@mui/icons-material/Mic';
+
 import Peer from 'peerjs';
 import socket from "../../socket";
 import './video.css'
@@ -8,7 +12,6 @@ export default function Videos(){
     const [ stream, setStream ] = useState()
     const myVideo = useRef();
 	const userVideo = useRef();
-	const connectionRef= useRef();
 
     const [roomId,setRoomId] = useState('');
 
@@ -42,8 +45,6 @@ export default function Videos(){
                 })
               })
 
-          
-          
             setStream(currentStream);
         })
         .catch(err=>{
@@ -53,43 +54,49 @@ export default function Videos(){
 
     function toggleVideoOpt(e,trackKind){
         e.preventDefault();
-        const currentStream = myVideo.current.srcObject
-        if(trackKind==='video'){
-            currentStream.getVideoTracks().forEach(function(track) {
-                if (track.kind === 'video') {
-                    if (track.enabled) {
-                        //track.stop();
-                        track.enabled = false; 
-                    }else{
-                        track.enabled = true; 
+        try{
+            const currentStream = myVideo.current.srcObject
+            if(trackKind==='video'){
+                currentStream.getVideoTracks().forEach(function(track) {
+                    if (track.kind === 'video') {
+                        if (track.enabled) {
+                            //track.stop();
+                            track.enabled = false; 
+                        }else{
+                            track.enabled = true; 
+                        }
                     }
-                }
-            });
-        }else if(trackKind==='audio'){
-            currentStream.getAudioTracks().forEach(function(track) {
-                if (track.kind === 'audio') {
-                    if (track.enabled) {
-                        //track.stop();
-                        track.enabled = false; 
-                    }else{
-                        track.enabled = true; 
+                });
+            }else if(trackKind==='audio'){
+                currentStream.getAudioTracks().forEach(function(track) {
+                    if (track.kind === 'audio') {
+                        if (track.enabled) {
+                            //track.stop();
+                            track.enabled = false; 
+                        }else{
+                            track.enabled = true; 
+                        }
                     }
-                }
-            });
+                });
+            }
+        }catch(err){
+            console.log("No video/audio stream")
         }
     }
     
     return(<>
     {/* <div className="container"> */}
-        <div className = "">
-            <button className="btn btn-dark" onClick={(e)=>{toggleVideoOpt(e,'video')}}>togle cam</button>
-            <button className="btn btn-dark" onClick={(e)=>{toggleVideoOpt(e,'audio')}}>togle mic</button>
-        </div>
-        <div id="video-wrapper-top"> 
-                    -
-        </div>
-        <div className="" id="video-player">
-            <div className="row justify-content-center">   
+       
+        <div className="shadow" id="video-player">
+            <div className="row justify-content-center " >   
+                <div className = "col" id="video-opt">
+                    <IconButton className="" onClick={(e)=>{toggleVideoOpt(e,'video')}}>
+                        <VideocamIcon className="icon-btn"/>
+                    </IconButton>
+                    <IconButton className="" onClick={(e)=>{toggleVideoOpt(e,'audio')}}>
+                        <MicIcon className="icon-btn"/>
+                    </IconButton>
+                </div>
                 <div className="col" id="video-col">
                     <video id="my-video" playsInline mute autoPlay ref={myVideo} width='236px' height='135px'/>
                 </div>
@@ -97,9 +104,6 @@ export default function Videos(){
                     <video id="user-video" playsInline mute autoPlay ref={userVideo} width='236px' height='135px' />
                 </div>
             </div>
-        </div>
-        <div id="video-wrapper-down">
-                    -
         </div>
     {/* </div> */}
        

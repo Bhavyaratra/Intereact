@@ -13,7 +13,7 @@ export default function Home(){
             <button className="btn btn-success">Editor</button>
         </Link>
         <Link to={`/room/${id}`}>
-            <button className="btn btn-info">Room</button>
+            <button className="btn btn-info">Create Room</button>
         </Link>
     </>)
 }

@@ -1,8 +1,12 @@
-#util-cntr{
+#util-cntnr{
     width: 100%;
+}
+
+#utility-nav{
+    height:6vh;
 }
 
 #util-btng{
     width: 100%;
-    justify-content: center;
 }
+

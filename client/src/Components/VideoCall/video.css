@@ -24,4 +24,20 @@ object-fit: cover;
 
 #video-col{
     height: 134px;
+    padding: 0;
+
+}
+
+#video-opt{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    background-color: #007bff;
+    height: 135px;
+    padding: 3px;
+}
+
+.icon-btn{
+    color:white
 }

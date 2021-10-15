@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const socketio = require('socket.io');
 const http = require('http');
+const router = require('./routes/router');
 
 const port = process.env.PORT || 8000;
 
@@ -20,7 +21,6 @@ const io = socketio(server,{
     cors:{
         origin: "*",
         methods: ["GET", "POST"],
-        allowedHeaders: ["my-custom-header"],
         credentials: true
     }
 })
@@ -32,6 +32,10 @@ server.listen(port,function(err){
         if(err) console.error('connection error',err);
         else console.log(`listening to port ${port} [http://localhost:${port}]`)
 })
+
+
+app.use('/api',router);
+
 
 app.use('/',(req,res)=>{
     res.send('welcome to server');
