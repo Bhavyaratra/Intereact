@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import { compileCode } from '../../functions/edtr-cplr';
-
+import { Container, Button } from 'react-bootstrap';
 import socket from '../../socket';
 
 export default function EditorInput(props){
@@ -21,12 +21,18 @@ export default function EditorInput(props){
    
 
     async function compile(){
-
-        setCompiling(true);
-        const resData = await compileCode(code,lang);
-        setCompiling(false);
-        setOutput(resData.output)
-        socket.emit('send-output',resData.output);
+        try{
+            setCompiling(true);
+            const resData = await compileCode(code,lang);
+            setCompiling(false);
+            console.log(resData);
+            setOutput(resData.output);
+            socket.emit('send-output',resData.output);
+        }catch(err){
+            setCompiling(false);
+            console.log('ERR : compile()', err);
+        }
+       
     }
 
     const handleLangChange = (event) => {
@@ -40,17 +46,20 @@ export default function EditorInput(props){
     }
 
     return(<>
-        <div className="container-md">
-        <button
-                class="btn btn-primary float-right"
-                id="code-runner"
-                type="button"
-                onClick={(e)=>{
-                    compile();
-                }}
-            >
-                <i class="bi bi-play-fill"></i> Run
-            </button>
+        <Container className="p-0">
+            <div  className="code-runner-cntr">
+                <Button
+                    className="code-runner"
+                    id="code-runner"
+                    type="button"
+                    onClick={(e)=>{
+                        compile();
+                    }}
+                >
+                    <i className="bi bi-play-fill"></i> Run
+                </Button>
+            </div>
+        
          <textarea 
            class="form-control text-monospace border-0" 
            id="editor-textarea"
@@ -59,21 +68,21 @@ export default function EditorInput(props){
            onChange={(e)=>{handleChange(e)}}>
          </textarea>
          
-         <div className="">
-          
-         </div> 
-         <select id="editor-lang-slct"  value={lang} onChange={(e)=>handleLangChange(e)}>
-            <option value="nodejs">NodeJs</option>
-            <option value="cpp">C++</option>
-            <option value="python3">Python</option>
-         </select>
+         <div className = "editor-lang-slct-cntr">
+            <select id="editor-lang-slct"  value={lang} onChange={(e)=>handleLangChange(e)}>
+                <option value="nodejs">NodeJs</option>
+                <option value="cpp">C++</option>
+                <option value="python3">Python</option>
+            </select>
+         </div>
+       
          <h3>output:</h3>
         
         <div className="output" style={{"overflow-y": "auto", "height":"20vh"}}>
             {compiling ? <p>compiling...</p> : <span></span>}
             {output? <samp className="">{output}</samp> : <span></span> }
         </div>
-        </div>
+        </Container>
         
     </>)
 }

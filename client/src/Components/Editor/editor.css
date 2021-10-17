@@ -12,18 +12,24 @@
     border:none
 }
 
-#code-runner{
+.code-runner-cntr{
+    display: flex;
+    justify-content: flex-end;
+}
+.code-runner{
     position: absolute;
-    right: 0;
-    margin-right: 20px;
-    margin-top: 4px;
+    margin: 5px;
+}
+
+.editor-lang-slct-cntr{
+    display: flex;
+    justify-content: flex-end;
 }
 
 #editor-lang-slct{
     position: absolute;
-    right: 0;
-    margin-right: 15px;
     margin-top: 5px;
+    border-radius: 0.25em;
 }
 
 .output{

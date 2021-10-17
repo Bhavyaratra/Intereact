@@ -5,6 +5,7 @@ import Questionbank from "../Utitlities/Questionbank"
 import './style.css'
 import Utilities from "../Utitlities/Utitlities"
 import socket from '../../socket';
+import { Container, Row } from 'react-bootstrap'
 
 export default function Room(){
     const [roomId,setRoomId] = useState('');
@@ -19,7 +20,7 @@ export default function Room(){
     }, [])
 
     return(<>
-    <div className="" id="room-view">
+    <Container fluid className="p-0" id="room-view">
     <div className="navbar" id="room-nav">
         <div className="container-fluid">
             <a className="navbar-brand" href="/home">
@@ -28,21 +29,21 @@ export default function Room(){
             </a>
         </div>
     </div>
-    <div className="container-fluid">
-        <div className="row" id="room-row1">
+    <div className="container-fluid ">
+        <Row className="" id="room-row1">
             <div className="col" id="editor">
                 <Editor/>
             </div>
             <div className="col" id="utility">
                     <Utilities/>
             </div>
-            <div className="position-absolute" id="video-call">
+        </Row>
+        <div className="position-absolute" id="video-call">
                     <VideoCall/>
             </div>
-        </div>
     </div>
      
-    </div>
+    </Container>
 
         </>)
 }

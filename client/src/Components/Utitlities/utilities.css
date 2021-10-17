@@ -1,12 +1,19 @@
 #util-cntnr{
+    display: flex; /* relevant part */
+    flex-direction: column; 
+    overflow-y: hidden; 
     width: 100%;
-}
-
-#utility-nav{
-    height:6vh;
+    max-height:60vh;
 }
 
 #util-btng{
     width: 100%;
 }
 
+#utility-textarea { 
+    font-family: monospace; 
+    font-size: 16px;
+    height: 51vh;
+    resize:none;
+    border: none;
+}

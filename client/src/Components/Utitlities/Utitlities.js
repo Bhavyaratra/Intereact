@@ -1,27 +1,24 @@
-
+import {Tabs,Tab} from 'react-bootstrap';
 import Questionbank from "./Questionbank"
+import Notes from './Notes';
 import './utilities.css'
 
 export default function Utilities(){
 
     return(<>
     <div className="" id="util-cntnr">
-        <div className="nav" id="utility-nav">
-            <div className="btn-group" id="util-btng">
-            <button 
-                type="button" 
-                className="btn btn-outline-primary"
-            >Question Bank</button>
-            <button 
-                type="button" 
-                className="btn btn-outline-primary"
-            >Notes</button>
-            </div>
+
+           <Tabs defaultActiveKey="ques" id="uncontrolled-tab-example" className="mb-3">
+                <Tab eventKey="ques" title="Questions">
+                    <Questionbank/>
+                </Tab>
+                <Tab eventKey="notes" title="Notes">
+                    <Notes/>
+                </Tab>
+                <Tab eventKey="resume" title="Resume">
+                    hello
+                </Tab>
+            </Tabs>
         </div>
-        
-        <div className="container-md">
-             <Questionbank/>
-        </div>
-    </div>
         </>)
 }
