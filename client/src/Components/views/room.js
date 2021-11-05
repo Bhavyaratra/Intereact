@@ -1,24 +1,23 @@
 import { useEffect, useState } from 'react'
 import Editor from "../Editor/Editor"
 import VideoCall from "../VideoCall/VideoCall"
-import Questionbank from "../Utitlities/Questionbank"
 import './style.css'
 import Utilities from "../Utitlities/Utitlities"
-import socket from '../../socket';
-import { Container, Row } from 'react-bootstrap'
+import { Container, Row ,Button } from 'react-bootstrap'
 
 export default function Room(){
     const [roomId,setRoomId] = useState('');
+    const [access,setAccess] = useState(false);
+    
     useEffect(() => {
         const url = window.location.href;
         const id = url.substr(url.lastIndexOf('/')+1,url.length);
         console.log(id);
         setRoomId(id);
 
-        socket.emit('join-room', id,"user-id")
-
     }, [])
 
+    if(access){
     return(<>
     <Container fluid className="p-0" id="room-view">
     <div className="navbar" id="room-nav">
@@ -27,7 +26,12 @@ export default function Room(){
                InteReact
                 {/* <img src="https://i.imgur.com/HTLGops.png" alt="logo" width="24" height="24" className="d-inline-block align-text-top"/> */}
             </a>
+            <Container >
+                <Button className="float-end" onClick={(e)=>{navigator.clipboard.writeText(`https://intereact-ee0ef.web.app/room/${roomId}`)}}>copy room link</Button>
+            </Container>
+
         </div>
+
     </div>
     <div className="container-fluid ">
         <Row className="" id="room-row1">
@@ -46,4 +50,17 @@ export default function Room(){
     </Container>
 
         </>)
+        }else{
+            return(<>
+                <Container fluid className="joining-room">
+                    <div>
+                    <h2>Ready to join ?</h2> 
+                    <Button className="rounded-pill" onClick={()=>{
+                        setAccess(true);
+                    }}>Join now</Button>
+                    </div>
+                </Container>
+            
+                    </>)
+        }
 }

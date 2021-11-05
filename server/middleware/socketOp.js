@@ -6,7 +6,9 @@ const socketOp = (io)=> {
 
         socket.on('join-room',(roomId, userId)=>{
             socket.join(roomId);
+            console.log('user id ',userId);
             socket.to(roomId).emit('user-connected', userId)
+
             socket.on('write-text',(data)=>{
                 socket.to(roomId).emit('updated-text',data);
             })
