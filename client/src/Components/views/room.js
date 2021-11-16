@@ -22,11 +22,14 @@ export default function Room(){
     <Container fluid className="p-0" id="room-view">
     <div className="navbar" id="room-nav">
         <div className="container-fluid">
-            <a className="navbar-brand" href="/home">
-               InteReact
+            <a className="navbar-brand site-name" href="/home">
+               Intereact
                 {/* <img src="https://i.imgur.com/HTLGops.png" alt="logo" width="24" height="24" className="d-inline-block align-text-top"/> */}
             </a>
             <Container >
+                <a className="float-end"  href="/home" style={{marginLeft:"10px"}}>
+                    <Button variant="danger">Exit</Button>
+                </a>
                 <Button className="float-end" onClick={(e)=>{navigator.clipboard.writeText(`https://intereact-ee0ef.web.app/room/${roomId}`)}}>copy room link</Button>
             </Container>
 

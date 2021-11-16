@@ -1,6 +1,8 @@
 import {Tabs,Tab} from 'react-bootstrap';
 import Questionbank from "./Questionbank"
 import Notes from './Notes';
+import ResumeView from './ResumeView';
+
 import './utilities.css'
 
 export default function Utilities(){
@@ -16,7 +18,7 @@ export default function Utilities(){
                     <Notes/>
                 </Tab>
                 <Tab eventKey="resume" title="Resume">
-                    hello
+                    <ResumeView/>
                 </Tab>
             </Tabs>
         </div>

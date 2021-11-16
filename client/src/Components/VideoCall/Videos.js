@@ -67,11 +67,6 @@ export default function Videos(){
         .catch(err=>{
             console.log("stream error",err);
         })
-
-        return () =>{
-            socket.emit('user-disconnected', userId )
-        }
-
     },[])
 
     function toggleVideoOpt(e,trackKind){
@@ -110,7 +105,6 @@ export default function Videos(){
     
     return(<>
     {/* <div className="container"> */}
-       
         <div className="shadow" id="video-player">
             <div className="row justify-content-center " >   
                 <div className = "col" id="video-opt">

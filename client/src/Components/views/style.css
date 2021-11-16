@@ -1,3 +1,7 @@
+@font-face {
+    font-family: "Manrope";
+    src: url(../../Assets/Fonts/Manrope/Manrope-VariableFont_wght.ttf) format("truetype");
+  }
 #room-view{
     width: 100vw;
 }
@@ -37,4 +41,10 @@
     display: grid;
     place-items: center;
 
+}
+
+.site-name{
+  font-family: Manrope;
+  font-weight: 500;
+  
 }

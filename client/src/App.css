@@ -1,8 +1,11 @@
+
 Body {
   /* background-color: #f5f5f5; */
   /* background-color: #f3f6fb;  */
   background-color: #e8ebf3; 
   /* background-color: rgb(233, 236, 245); */
+
+  color: #282C40;
   width: 100vw;
   height: 100vh;
   overflow: hidden;

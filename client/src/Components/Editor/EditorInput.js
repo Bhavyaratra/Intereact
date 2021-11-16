@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import { compileCode } from '../../functions/edtr-cplr';
+import { compileCode } from '../../functions/realm-fn';
 import { Container, Button } from 'react-bootstrap';
 import socket from '../../socket';
 

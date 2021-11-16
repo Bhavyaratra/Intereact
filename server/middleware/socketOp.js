@@ -16,6 +16,10 @@ const socketOp = (io)=> {
             socket.on('send-output',(output)=>{
                 socket.to(roomId).emit('recieve-output',output);
             })
+
+            socket.on('update-file-url',(output)=>{
+                socket.to(roomId).emit('updated-file-url',output);
+            })
         })
         
     })

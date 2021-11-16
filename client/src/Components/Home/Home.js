@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { Container ,Button } from 'react-bootstrap'
+import logo from '../../Assets/logo/intereactLogo.png'
 import './home.css'
 
 export default function Home(){
@@ -12,6 +13,10 @@ export default function Home(){
     return(
         <Container fluid >
             <div>
+                <div>
+                    <img alt="" src={logo} width="48px" /> 
+    
+                </div>
                 <h1>HOME PAGE</h1>
                 <Link to="/editor">
                     <Button className="btn btn-success">Editor</Button>
