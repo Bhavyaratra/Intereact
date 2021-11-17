@@ -12,7 +12,7 @@ const compileCode = async (code,lang)=>{
         }
         return await axios({
             method: "POST",
-            url: "https://ap-south-1.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/intereact-usxcf/service/jdoodle/incoming_webhook/execute",
+            url: process.env.REACT_APP_COMPILE_URL,
             data: {code,lang},
           })
             .then((res) => {

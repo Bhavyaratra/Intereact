@@ -3,6 +3,7 @@ const cors = require('cors');
 const socketio = require('socket.io');
 const http = require('http');
 const router = require('./routes/router');
+require('dotenv').congif();
 
 const port = process.env.PORT || 8000;
 
