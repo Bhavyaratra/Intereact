@@ -45,7 +45,7 @@ export default function Videos(){
                 call.on('stream', userVideoStream => {
                     userVideo.current.srcObject = userVideoStream;
                 })
-                console.log("peer",peer)
+                console.log("on call",peer)
               })
              
             socket.on('user-connected', userId => {
@@ -128,7 +128,7 @@ export default function Videos(){
                     <video id="my-video" playsInline muted autoPlay ref={myVideo} width='236px' height='135px'/>
                 </div>
                 <div className="col" id="video-col">
-                    <video id="user-video" playsInline muted autoPlay ref={userVideo} width='236px' height='135px' />
+                    <video id="user-video" playsInline autoPlay ref={userVideo} width='236px' height='135px' />
                 </div>
             </div>
         </div>

@@ -4,7 +4,7 @@ import VideoCall from "../VideoCall/VideoCall"
 import './style.css'
 import Utilities from "../Utitlities/Utitlities"
 import { Container, Row ,Button } from 'react-bootstrap'
-
+import socket from '../../socket'
 export default function Room(){
     const [roomId,setRoomId] = useState('');
     const [access,setAccess] = useState(false);
@@ -14,7 +14,7 @@ export default function Room(){
         const id = url.substr(url.lastIndexOf('/')+1,url.length);
         console.log(id);
         setRoomId(id);
-
+        socket.emit('join-room', id, )
     }, [])
 
     if(access){

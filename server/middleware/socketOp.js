@@ -18,6 +18,7 @@ const socketOp = (io)=> {
             })
 
             socket.on('update-file-url',(output)=>{
+                console.log('got file');
                 socket.to(roomId).emit('updated-file-url',output);
             })
         })

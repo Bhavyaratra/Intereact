@@ -19,14 +19,14 @@ export default function ResumeView(){
         const reader = new FileReader();
         reader.readAsDataURL(e.target.files[0]);
         reader.onloadend = () => {
-            console.log(reader.result)
             setResumeUrl(reader.result);
+            console.log(reader.result);
             socket.emit('update-file-url',reader.result)
           };
     }
 
     return(<>
-    <Container className="p-0" style={{"overflow-y":"auto","max-height":'60vh'}} >
+    <Container className="p-0" style={{"overflowY":"auto","maxHeight":'60vh'}} >
         {resumeUrl ? 
             <div>
                 <iframe title = "pdf-veiwer"style ={{width:"100%",height:"45vh"}}src={resumeUrl} />
