@@ -33,7 +33,7 @@
 
 
 #room-nav{
-    background-color: #e8ebf3;
+    background-color: #e6f0ff; 
 }
 
 .joining-room{
@@ -46,5 +46,7 @@
 .site-name{
   font-family: Manrope;
   font-weight: 500;
+  font-size: 25px;
+  color: #0d6efd;
   
 }

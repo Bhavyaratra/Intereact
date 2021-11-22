@@ -3,3 +3,14 @@
     display: grid;
     place-items: center;
 }
+
+.ball {
+    position: absolute;
+    border-radius: 100%;
+    opacity: 0.7;
+  }
+
+.site-container{
+    font-family: Manrope;
+    
+}
