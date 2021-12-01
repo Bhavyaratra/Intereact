@@ -57,7 +57,7 @@ export default function Home(){
     },[])
 
     useEffect(()=>{
-        setId(uuidv4());
+        setId(uuidv4().split('-')[0]);
     },[])
     return(
         <Container fluid >

@@ -1,28 +1,42 @@
 import { useState ,useEffect} from "react";
 import { Container, Button } from "react-bootstrap"
 import FileUploadIcon from '@mui/icons-material/FileUpload';
+import {sendFile, textract} from '../../functions/util-srvc';
 import socket from '../../socket';
+
 import './ResumeView.css'
 
 export default function ResumeView(){
-  
+
+          
     const [resumeUrl,setResumeUrl] = useState('');
+    const [roomId,setRoomId] = useState('');
     const [file,setFile] = useState({});
 
     useEffect(()=>{
         socket.on('updated-file-url',data=>{setResumeUrl(data);})
+        const url = window.location.href;
+        const id = url.substr(url.lastIndexOf('/')+1,url.length);
+        console.log(id);
+        setRoomId(id);
     }
     ,[])
 
     async function handleFileChange(e){
         setFile(e.target.files[0]);
-        const reader = new FileReader();
-        reader.readAsDataURL(e.target.files[0]);
-        reader.onloadend = () => {
-            setResumeUrl(reader.result);
-            console.log(reader.result);
-            socket.emit('update-file-url',reader.result)
-          };
+        try{
+            const fileurl = await sendFile(e.target.files[0],{rmid:roomId});
+            console.log(fileurl);
+            setResumeUrl(fileurl);
+            socket.emit('update-file-url',fileurl)
+            const res =await textract(fileurl);
+            //todo nlu on extracted text 
+            console.log(res);
+            
+        }catch(err){
+            console.log('handleFileChange error',err)
+        }
+
     }
 
     return(<>
