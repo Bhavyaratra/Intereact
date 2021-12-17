@@ -2,12 +2,12 @@ import { useState ,useEffect} from "react";
 import { Container, Button } from "react-bootstrap"
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 import {sendFile, textract} from '../../functions/util-srvc';
-import socket from '../../socket';
+
 
 import './ResumeView.css'
 
-export default function ResumeView(){
-
+export default function ResumeView({socket}){
+    const skills = ["cpp","c++","javascript","js","python","py"];
           
     const [resumeUrl,setResumeUrl] = useState('');
     const [roomId,setRoomId] = useState('');
@@ -32,7 +32,17 @@ export default function ResumeView(){
             const res =await textract(fileurl);
             //todo nlu on extracted text 
             console.log(res);
-            
+            if(res.success){
+                const text = res.text.toLowerCase();
+                let skillArr=[];
+                skills.forEach((skill)=>{
+                    if(text.includes(skill)){
+                        skillArr.push(skill);
+                    }
+                })
+                console.log(skillArr)
+                socket.emit('add-skills',skillArr);
+            } 
         }catch(err){
             console.log('handleFileChange error',err)
         }

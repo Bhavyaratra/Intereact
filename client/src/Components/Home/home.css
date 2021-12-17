@@ -2,6 +2,7 @@
     height: 100vh;
     display: grid;
     place-items: center;
+    overflow-y: hidden;
 }
 
 .ball {
@@ -14,3 +15,172 @@
     font-family: Manrope;
     
 }
+
+.home1{
+    overflow-x: hidden;
+}
+/* //////// */
+
+
+#topnavbar {
+    display: flex;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  #top1 {
+    text-decoration: none;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-size: 28px;
+    vertical-align: middle;
+  }
+  #top1::after {
+    color: steelblue;
+  }
+  #logotop {
+    margin-left: 4px;
+    margin-right: 5px;
+    height: 40px;
+    width: auto;
+    background-color: #fff;
+    /* margin-top: 10px; */
+  }
+  #topline {
+    border-bottom: 2px solid rgb(65, 97, 243);
+    margin-bottom: 50px;
+
+  }
+  .section {
+    height: 60vh;
+  }
+  
+  #bodhome {
+    width:100vw;
+  }
+  #bodhome1 {
+    /* font-family: Arial, Helvetica, sans-serif; */
+    font-size: 50px;
+  }
+  #homeimg1 {
+    margin: auto;
+    justify-content: center;
+    margin-bottom: 100px;
+  }
+  #cr {
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    width: max-content;
+    font-size: 25px;
+    background: rgb(65, 97, 243);
+    color: #fff;
+    border: 2px solid transparent;
+    border-radius: 10px;
+  }
+  #cr:hover {
+    color: rgb(65, 97, 243);
+    background-color: white;
+    border: 2px solid rgb(65, 97, 243);
+    border-radius: 10px;
+  }
+  #bodhome3 {
+    /* grid-column: 1 / span 2; */
+    text-align: center;
+    margin-top: 150px;
+    margin-bottom: 150px;
+    margin:auto;
+    font-size: 28px;
+    animation: fading 5s infinite;
+  }
+  #homeimg2 {
+    width: 300px;
+  }
+  .hometxt2 {
+    font-size: 28px;
+    margin-right: 30px;
+  }
+  #hometext2 {
+    margin-left: 18px;
+    margin-top: 150px;
+    text-align: justify;
+  }
+  /* @media only screen and (max-width: 600px) {
+    .hometxt2 {
+      font-size: 18px;
+    }
+    #hide {
+      display: none;
+    }
+    #cr {
+      font-size: 18px;
+    }
+    #bodhome1 {
+      font-size: 18px;
+    }
+    #homeimg1,
+    #homeimg2 {
+      width: 150px;
+    }
+    .homeimg3 {
+      width: 200px;
+      height: 100px;
+    }
+    #hometext2 {
+      margin-top: 10px;
+    }
+  } */
+
+  #homeimg3 {
+    width: 300px;
+  }
+  #homeimg4 {
+    margin-top: 80px;
+    width: 100%;
+  }
+  
+  @keyframes fading {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  footer {
+    width: 100vw;
+    text-align: center;
+    padding: 3px;
+    background-image: linear-gradient(
+      to right,
+      rgb(88, 74, 244),
+      rgb(65, 97, 243),
+      rgb(65, 97, 243),
+      rgb(88, 74, 244)
+    );
+    font-size: 18px;
+    color: white;
+    margin-top: 50px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  footer ul {
+    list-style: none;
+  }
+  @media only screen and (max-width: 380px) {
+    #bodhome {
+      display: flex;
+      flex-direction: column;
+    }
+    #homeimg1,
+    #bodhome3,
+    .homeimg3,
+    #hid {
+      display: none;
+    }
+  }
+  

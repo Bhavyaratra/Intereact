@@ -20,6 +20,11 @@ const socketOp = (io)=> {
             socket.on('update-file-url',(output)=>{
                 socket.to(roomId).emit('updated-file-url',output);
             })
+
+            socket.on('add-skills',(output)=>{
+                console.log(output)
+                io.in(roomId).emit('added-skills',output);
+            })
         })
         
     })

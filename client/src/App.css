@@ -10,5 +10,5 @@ Body {
   color: #282C40;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+ overflow-x: hidden;
 }

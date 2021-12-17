@@ -1,10 +1,10 @@
 import Videos from './Videos';
 import './video.css'
 
-export default function VideoCall(){
+export default function VideoCall({socket}){
     return(
             <div className="">
-                    <Videos/>
+                    <Videos socket={socket}/>
             </div>
         )
 }

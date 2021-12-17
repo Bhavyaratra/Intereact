@@ -38,8 +38,6 @@ const sendFile = async (file,data)=>{
                     rmid: data.rmid,
                 }
                 const docRef = await addDoc(collection(db,'docx'),doc);
-                console.log(docRef);
-                console.log(url);
                 return url;
             })
         })

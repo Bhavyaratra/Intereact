@@ -5,17 +5,20 @@ import './style.css'
 import Utilities from "../Utitlities/Utitlities"
 import { Container, Row ,Button } from 'react-bootstrap'
 import socket from '../../socket'
+
 export default function Room(){
+
     const [roomId,setRoomId] = useState('');
     const [access,setAccess] = useState(false);
     
     useEffect(() => {
         const url = window.location.href;
         const id = url.substr(url.lastIndexOf('/')+1,url.length);
-        console.log(id);
         setRoomId(id);
         socket.emit('join-room', id, )
     }, [])
+
+
 
     if(access){
     return(<>
@@ -42,11 +45,11 @@ export default function Room(){
                 <Editor/>
             </div>
             <div className="col" id="utility">
-                    <Utilities/>
+                    <Utilities socket={socket}/>
             </div>
         </Row>
         <div className="position-absolute" id="video-call">
-                    <VideoCall/>
+                    <VideoCall socket={socket}/>
             </div>
     </div>
      

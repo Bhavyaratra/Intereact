@@ -7,10 +7,10 @@ import MicOffIcon from '@mui/icons-material/MicOff';
 import VideocamOffIcon from '@mui/icons-material/VideocamOff';
 
 import Peer from 'peerjs';
-import socket from "../../socket";
+// import socket from "../../socket";
 import './video.css'
 
-export default function Videos(){
+export default function Videos({socket}){
     const history = useHistory();
     const [ stream, setStream ] = useState()
 
@@ -27,14 +27,22 @@ export default function Videos(){
         const url = window.location.href;
         const room_id = url.substr(url.lastIndexOf('/')+1,url.length);
         setRoomId(room_id);
-    
+        console.log("video",socket)
         navigator.mediaDevices.getUserMedia({
             video: true,
             audio: true
         })
         .then(currentStream=>{
             myVideo.current.srcObject = currentStream;
-            const peer = new Peer(undefined);
+            const peer = new Peer({
+                config: {'iceServers': [
+                    {
+                        url: 'turn:numb.viagenie.ca',
+                        credential: 'muazkh',
+                        username: 'webrtc@live.com'
+                    }
+                ]} 
+              });
             peer.on('open', id => {
                 setUserId(id);
                 console.log('peer id',id);

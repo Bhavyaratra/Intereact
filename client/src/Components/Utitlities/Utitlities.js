@@ -5,20 +5,20 @@ import ResumeView from './ResumeView';
 
 import './utilities.css'
 
-export default function Utilities(){
+export default function Utilities({socket}){
 
     return(<>
     <div className="" id="util-cntnr">
 
            <Tabs defaultActiveKey="ques" id="uncontrolled-tab-example" className="mb-3">
                 <Tab eventKey="ques" title="Questions">
-                    <Questionbank/>
+                    <Questionbank socket={socket} />
                 </Tab>
                 <Tab eventKey="notes" title="Notes">
                     <Notes/>
                 </Tab>
                 <Tab eventKey="resume" title="Resume">
-                    <ResumeView/>
+                    <ResumeView socket={socket} />
                 </Tab>
             </Tabs>
         </div>
