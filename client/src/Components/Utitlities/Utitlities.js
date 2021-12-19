@@ -10,7 +10,7 @@ export default function Utilities({socket}){
     return(<>
     <div className="" id="util-cntnr">
 
-           <Tabs defaultActiveKey="ques" id="uncontrolled-tab-example" className="mb-3">
+           <Tabs defaultActiveKey="resume" id="uncontrolled-tab-example" className="mb-3">
                 <Tab eventKey="ques" title="Questions">
                     <Questionbank socket={socket} />
                 </Tab>

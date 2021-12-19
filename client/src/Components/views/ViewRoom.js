@@ -6,7 +6,7 @@ import Utilities from "../Utitlities/Utitlities"
 import { Container, Row ,Button } from 'react-bootstrap'
 import socket from '../../socket'
 
-export default function Room(){
+export default function ViewRoom(){
 
     const [roomId,setRoomId] = useState('');
     const [access,setAccess] = useState(false);

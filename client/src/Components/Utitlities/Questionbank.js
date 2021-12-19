@@ -43,7 +43,9 @@ export default function Questionbank({socket}){
           }
         </div>
         ))}
-      
+      {skills && skills.length === 0 && 
+        <p>Please upload resume</p>
+      }
     </div>
 
         </>)
