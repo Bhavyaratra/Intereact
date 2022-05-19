@@ -5,15 +5,14 @@ import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { getStorage, ref, getDownloadURL, uploadBytes } from "firebase/storage";
 
 const db = getFirestore(firebase);
-
+const baseurl = process.env.REACT_APP_SERVER_URL;
 const textract = async (url) => {
   return await axios({
     method: "POST",
-    url: `${process.env.REACT_APP_SERVER_URL}/api/textract`,
+    url: `${baseurl}/api/textract`,
     data: { url: url },
   })
     .then((res) => {
-      console.log(res);
       return res.data;
     })
     .catch((error) => {
@@ -35,6 +34,7 @@ const sendFile = async (file, data) => {
           rmid: data.rmid,
         };
         const docRef = await addDoc(collection(db, "docx"), doc);
+
         return url;
       });
     });

@@ -16,9 +16,9 @@ export default function Questionbank({socket}){
   },[])
 
   return(<>
-    <div className="container-md p-0" style={{"overflowY":"auto","maxHeight":'51vh'}} >
+    <div className="container-md p-0" style={{"overflow-y":"auto","max-height":'51vh'}} >
         {ques && ques.length!==0 && ques.map((item,i)=>(
-          <div key={i}>
+          <div>
             {item.ctgr.some(r=> skills.indexOf(r) >= 0) && 
               <Accordion TransitionProps={{ unmountOnExit: true }}>
             

@@ -26,7 +26,6 @@ export default function ResumeView({socket}){
         setFile(e.target.files[0]);
         try{
             const fileurl = await sendFile(e.target.files[0],{rmid:roomId});
-            console.log(fileurl);
             setResumeUrl(fileurl);
             socket.emit('update-file-url',fileurl)
             const res =await textract(fileurl);
@@ -40,7 +39,6 @@ export default function ResumeView({socket}){
                         skillArr.push(skill);
                     }
                 })
-                console.log(skillArr)
                 socket.emit('add-skills',skillArr);
             } 
         }catch(err){
