@@ -15,6 +15,7 @@ import homeImg3 from "../../Assets/logo/home3.jpeg";
 import demoImg from "../../Assets/logo/demoImg.PNG";
 import { UserContext } from "../../context/UserContext";
 import { Navigate } from "react-router-dom";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import "./home.css";
 
 export default function Home() {
@@ -178,7 +179,13 @@ export default function Home() {
       </Container>
       <footer>
         <div>
-          <p></p>
+          <a
+            href="https://github.com/Bhavyaratra/Intereact"
+            target="_blank"
+            style={{ color: "black" }}
+          >
+            <GitHubIcon fontSize="large" />
+          </a>
         </div>
       </footer>
     </>
